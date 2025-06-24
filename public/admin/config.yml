@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main     # o la rama que uses
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+local_backend: true
+
+collections:
+  - name: "member"
+    label: "Miembros"
+    folder: "content/members"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre", name: "title", widget: "string"}
+      - {label: "Rol", name: "role", widget: "select", options: ["voz", "guitarra", "batería", "bajo"]}
+      - {label: "Bio (ES)", name: "body_es", widget: "markdown"}
+      - {label: "Bio (EU)", name: "body_eu", widget: "markdown"}
+      - {label: "Foto", name: "image", widget: "image"}
+
+  # Añade aquí Release, Gig, Post, MerchItem con la misma lógica

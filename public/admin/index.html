@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>PLUK CMS</title>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+    <script>
+      window.CMS_MANUAL_INIT = true
+      fetch('/admin/config.yml')
+        .then(res => res.text())
+        .then(cfg => {
+          window.CMS.init({ config: cfg })
+        })
+    </script>
+  </body>
+</html>
