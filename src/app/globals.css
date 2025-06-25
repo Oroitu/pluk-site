@@ -1,30 +1,26 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* -------------------------------------------
+   Global styles for PLUK — keep minimal; most
+   theming is done via Tailwind utility classes
+   ------------------------------------------- */
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-pluk-bg: #1F0802;
+    --color-pluk-main: #1C646D;
+    --color-pluk-light: #CEF09D;
+    --color-pluk-accent: #38184C;
+    --color-pluk-hover: #A0CD60;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply font-body bg-pluk-bg text-pluk-light antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
 }
