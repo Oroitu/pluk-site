@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* -------------------------------------------
-   Global styles for PLUK — keep minimal; most
-   theming is done via Tailwind utility classes
-   ------------------------------------------- */
-
 @layer base {
   :root {
     --color-pluk-bg: #1F0802;

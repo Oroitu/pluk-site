@@ -1,67 +1,28 @@
-/**
- * Root layout of the PLUK website (Next.js 14 App Router).
- * - Loads custom fonts (Unbounded & Fira Sans).
- * - Sets global <html> / <body> classes for color scheme and typography.
- * - Wraps every route with common providers (i18n in future).
- */
-
+import { Unbounded } from 'next/font/google'
+import { Fira_Sans } from 'next/font/google'
 import './globals.css'
-import localFont from 'next/font/local'
-import { ReactNode } from 'react'
 
-// Local font files stored in /public/fonts
-const unbounded = localFont({
-  src: [
-    {
-      path: '../public/fonts/Unbounded-SemiExpanded.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
-  display: 'swap',
+const unbounded = Unbounded({
+  subsets: ['latin'],
   variable: '--font-heading',
+  weight: ['600', '700'],
 })
-
-const fira = localFont({
-  src: [
-    {
-      path: '../public/fonts/FiraSans-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/FiraSans-Medium.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-  ],
-  display: 'swap',
+const fira = Fira_Sans({
+  subsets: ['latin'],
   variable: '--font-body',
+  weight: ['400', '500'],
 })
 
 export const metadata = {
-  title: {
-    template: '%s | PLUK',
-    default: 'PLUK — Official Site',
-  },
-  description:
-    'Sitio oficial de la banda PLUK (metal/rock/nu‑metal): música, conciertos y merchandising.',
-  metadataBase: new URL('https://pluk.band'),
-  icons: {
-    icon: '/favicon.ico',
-  },
+  title: 'PLUK — Official Site',
+  description: 'Sitio oficial de la banda PLUK (metal/rock/nu-metal) — descubre música, fechas y merch.',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="es"
-      className={`${unbounded.variable} ${fira.variable} scroll-smooth`}
-    >
+    <html lang="es" className={`${unbounded.variable} ${fira.variable}`}>
       <body className="font-body bg-pluk-bg text-pluk-light antialiased">
-        {/* Global Site Header / Navigation vendrá más adelante */}
         {children}
-        {/* Footer global vendrá aquí */}
       </body>
     </html>
   )
